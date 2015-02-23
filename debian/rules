@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	install -D -m 644 foremost.conf $(CURDIR)/debian/foremost/etc/foremost.conf
+	install -D -m 755 foremost $(CURDIR)/debian/foremost/usr/bin/foremost

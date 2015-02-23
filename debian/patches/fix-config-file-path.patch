@@ -1,0 +1,16 @@
+Description: Look in /etc for config file by default
+Origin: vendor
+Forwarded: no
+Author: Gürkan Sengün <gurkan@phys.ethz.ch>
+Last-update: 2012-05-13
+--- a/config.c
++++ b/config.c
+@@ -288,7 +288,7 @@
+ #ifdef __WIN32
+ 		set_config_file(s, "/Program Files/foremost/foremost.conf");
+ #else
+-		set_config_file(s, "/usr/local/etc/foremost.conf");
++		set_config_file(s, "/etc/foremost.conf");
+ #endif
+ 		if ((f = fopen(get_config_file(s), "r")) == NULL)
+ 			{

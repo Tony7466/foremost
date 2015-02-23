@@ -1,0 +1,13 @@
+Fixed hurd-i386, kfreebsd-i386 and kfreebsd-amd64 build by adding its
+respective rules to Makefile.
+--- a/Makefile
++++ b/Makefile
+@@ -76,6 +76,8 @@
+ netbsd:  unix
+ openbsd: unix
+ freebsd: unix
++gnu: unix
++gnu/kfreebsd: unix
+ unix: goals
+ 
+ #Fore some reasons BSD variants get confused on how to build engine.o
