@@ -1,3 +1,8 @@
+Author: Raúl Benencia <rul@kalgan.cc>
+Description: Improve Foremost's Makefile
+ Foremost's Makefile does not uses the standards flags CFLAGS, LDFLAGS and
+ CPPFLAGS, breaking the compatibility of the flags set by debhelper. This patch
+ modifies the Makefile to make it compile Foremost in a more standard way.
 --- a/Makefile
 +++ b/Makefile
 @@ -36,10 +36,8 @@
