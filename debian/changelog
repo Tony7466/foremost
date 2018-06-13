@@ -5,6 +5,8 @@ foremost (1.5.7-7) UNRELEASED; urgency=medium
   * Update Homepage and Vcs fields on d/control.
   * Update debhelper compat version to 11. No changes required.
   * Update Standards-Version. No changes required.
+  * Fix insecure-copyright-format-uri and update source code reference in
+    d/copyright file.
 
  -- Raúl Benencia <rul@kalgan.cc>  Sun, 10 Jun 2018 22:39:53 -0700
 

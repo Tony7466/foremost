@@ -1,10 +1,10 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: foremost
 Upstream-Contact: Kris Kendall <kriskendall@users.sourceforge.net>,
                   Jesse Kornblum <research@jessekorblum.com>
                   Nick Mikus <namikus@users.sf.net>
                   Charles Wyble <jackshck@thewybles.com>
-Source: http://foremost.sourceforge.net/pkg/foremost-1.5.7.tar.gz
+Source: https://sourceforge.net/code-snapshots/svn/f/fo/foremost/code/foremost-code-r6-tags-release-1.5.7.zip
 
 Files: *
 Copyright: This work is in the public domain
