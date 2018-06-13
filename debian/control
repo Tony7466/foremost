@@ -3,7 +3,7 @@ Section: admin
 Priority: optional
 Maintainer: Raúl Benencia <rul@kalgan.cc>
 Build-Depends: debhelper (>= 11)
-Standards-Version: 3.9.6
+Standards-Version: 4.1.4
 Homepage: https://sourceforge.net/projects/foremost/
 Vcs-Git: https://salsa.debian.org/rul-guest/foremost.git
 Vcs-Browser: https://salsa.debian.org/rul-guest/foremost
