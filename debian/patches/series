@@ -1,5 +1,5 @@
-fix-config-file-path.patch
-fix-lintian-hardening-warnings.patch
-fix-hurd-and-kfreebsd-build.patch
-fix-hurd-max-path.patch
+00-fix-config-file-path.patch
+01-fix-lintian-hardening-warnings.patch
+02-fix-hurd-and-kfreebsd-build.patch
+03-fix-hurd-max-path.patch
 04-improve-makefile.patch
