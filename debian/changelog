@@ -1,4 +1,4 @@
-foremost (1.5.7-7) UNRELEASED; urgency=medium
+foremost (1.5.7-7) sid; urgency=medium
 
   * Fix build to honor flags set by dh. Thanks to Yann Dirson for
     reporting the bug and sending part of the patch. (Closes: #833638, #850926)
@@ -9,7 +9,7 @@ foremost (1.5.7-7) UNRELEASED; urgency=medium
     d/copyright file.
   * Prepend numbers in patches file names.
 
- -- Raúl Benencia <rul@kalgan.cc>  Sun, 10 Jun 2018 22:39:53 -0700
+ -- Raúl Benencia <rul@kalgan.cc>  Thu, 14 Jun 2018 07:40:30 -0700
 
 foremost (1.5.7-6) sid; urgency=low
 
