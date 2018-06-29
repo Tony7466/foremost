@@ -1,0 +1,66 @@
+Author: Raúl Benencia <rul@kalgan.cc>
+Description: Enforce limits
+ Enforce limits on the amount of possible patterns and the length of the config
+ lines in order to avoid segmentation faults and undefined behaviour.
+--- a/config.c
++++ b/config.c
+@@ -187,6 +187,15 @@
+ 	char	**tokenarray = (char **)malloc(6 * sizeof(char[MAX_STRING_LENGTH]));
+ 	int		i = 0, len = strlen(buffer);
+ 
++	if (len == MAX_STRING_LENGTH - 1)
++		{
++		if (!(buffer[len -1] == '\n') || !(buffer[len - 2] == 0x0d && buffer[len - 1] == 0x0a))
++			{
++			fprintf(stderr, "\nERROR: Foremost does not support lines longer than %d. Check line %d.\n", MAX_STRING_LENGTH, line_number);
++			return FALSE;
++			}
++		}
++
+ 	/* Any line that ends with a CTRL-M (0x0d) has been processed
+    by a DOS editor. We will chop the CTRL-M to ignore it */
+ 	if (buffer[len - 2] == 0x0d && buffer[len - 1] == 0x0a)
+@@ -258,6 +267,12 @@
+ 
+ 		}
+ 
++	if (s->num_builtin >= MAX_BUILTIN)
++		{
++		fprintf(stderr, "\nERROR: Reached maximum amount of entries. Line: %d. Maximum: %d\n", line_number, MAX_BUILTIN);
++		return FALSE;
++		}
++
+ 	if (!extractSearchSpecData(s, tokenarray))
+ 		{
+ 		fprintf(stderr,
+--- a/main.c
++++ b/main.c
+@@ -243,7 +243,8 @@
+ 	register_signal_handler();
+ 	process_command_line(argc, argv, s);
+ 
+-	load_config_file(s);
++	if (load_config_file(s))
++		fatal_error(s, "Unable to load the config file");
+ 
+ 	if (s->num_builtin == 0)
+ 		{
+--- a/main.h
++++ b/main.h
+@@ -198,6 +198,7 @@
+    Program Defaults
+    ----------------------------------------------------------------- */
+ #define MAX_STRING_LENGTH   1024
++#define MAX_BUILTIN   50
+ #define COMMENT_LENGTH   64
+ 
+ /* Modes refer to options that can be set by the user. */
+@@ -344,7 +345,7 @@
+     int written; /*used for -a mode*/
+ }s_spec;
+ 
+-s_spec search_spec[50];  /*ARRAY OF BUILTIN SEARCH TYPES*/
++s_spec search_spec[MAX_BUILTIN];  /*ARRAY OF BUILTIN SEARCH TYPES*/
+ 
+ typedef struct f_info {
+   char *file_name;
