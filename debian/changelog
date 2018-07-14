@@ -3,6 +3,7 @@ foremost (1.5.7-8) UNRELEASED; urgency=medium
   * Enforce limit on the config file lines length. (Closes: #833639)
   * Enforce limit on the amount of possible config file
     entries. (Closes: #833642)
+  * Update Standards Version to 4.1.5. No changes required.
 
  -- Raúl Benencia <rul@kalgan.cc>  Fri, 13 Jul 2018 08:31:58 -0700
 
