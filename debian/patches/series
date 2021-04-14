@@ -4,3 +4,4 @@
 03-fix-hurd-max-path.patch
 04-improve-makefile.patch
 05-enforce-limits.patch
+06-zip-extra-byte.patch

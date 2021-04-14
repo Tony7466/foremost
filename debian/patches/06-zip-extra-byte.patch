@@ -1,0 +1,15 @@
+Author: Maxim Nikulin <m.a.nikulin@gmail.com>
+Description: Fix extra byte on .zip files
+ Fix extra byte at the tail of recovered zip files if -t all is
+ used. Use the same signature than the "zip" mode.
+--- a/state.c
++++ b/state.c
+@@ -302,7 +302,7 @@
+ 				 ZIP,
+ 				 "zip",
+ 				 "\x50\x4B\x03\x04",
+-				 "\x4b\x05\x06\x00",
++				 "\x50\x4b\x05\x06",
+ 				 4,
+ 				 4,
+ 				 100 * MEGABYTE,

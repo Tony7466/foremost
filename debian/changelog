@@ -1,3 +1,13 @@
+foremost (1.5.7-9) unstable; urgency=medium
+
+  * Fix extra byte at the tail of recovered zip files if -t all is
+    used. Thanks to Maxim Nikulin for reporting the bug and sending the
+    patch. (Closes: #928070)
+  * Use debhelper 12.
+  * Bump standards version to 4.3.0, no changes required.
+
+ -- Raúl Benencia <rul@kalgan.cc>  Wed, 12 Jun 2019 08:08:06 -0700
+
 foremost (1.5.7-8) unstable; urgency=medium
 
   * Enforce limit on the config file lines length. (Closes: #833639)
