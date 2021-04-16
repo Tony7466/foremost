@@ -1,0 +1,14 @@
+Author: Raúl Benencia <rul@kalgan.cc>
+Description: Harden engine
+ Apply CFLAGS, CPPFLAGS and RAW_FLAGS to engine.c.
+--- a/Makefile
++++ b/Makefile
+@@ -83,7 +83,7 @@
+ #so lets make it real clear
+ 
+ engine.o:       engine.c
+-	$(CC) -c engine.c
++	$(CC) $(CFLAGS) $(CPPFLAGS) $(RAW_FLAGS) -c engine.c
+ 
+ 
+ # Common commands for compiling versions for Windows. 
