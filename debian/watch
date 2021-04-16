@@ -1,5 +1,4 @@
-# Compulsory line, this is a version 3 file
-version=3
-
-http://foremost.sourceforge.net/ \
-  pkg/foremost-(.*)\.tar\.gz
+version=4
+opts="mode=svn, pgpmode=none" \
+https://svn.code.sf.net/p/foremost/code/tags/ \
+release-([\d.]+)\/ debian uupdate
