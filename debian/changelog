@@ -1,8 +1,21 @@
-foremost (1.5.7-10) UNRELEASED; urgency=medium
+foremost (1.5.7-10) unstable; urgency=medium
 
-  * WIP
+  [ Gürkan Myczko ]
+  * Update foremost.1.
 
- -- Raúl Benencia <rul@kalgan.cc>  Wed, 14 Apr 2021 07:56:05 -0700
+  [ Debian Janitor ]
+  * Set branch from vcswatch in Vcs-Git URL.
+
+  [ Raul Benencia ]
+  * Update standards to version 4.5.1.
+  * Use debhelper 13.
+  * Update VCS fields to new location.
+  * d/watch with SVN.
+  * Disable Root build.
+  * Add upstream metadata.
+  * Harden engine.c.
+
+ -- Raúl Benencia <rul@kalgan.cc>  Fri, 16 Apr 2021 10:59:14 -0700
 
 foremost (1.5.7-9.1) unstable; urgency=medium
 
