@@ -1,0 +1,27 @@
+From: dk736305@gmail.com
+Date: Tue, 28 Sep 2021 18:19:02 -0700
+Subject: Fix -c undefined behavior
+
+Running "foremost -T -c something" results in undefined behavior.
+First, it calls `fopen()` with NULL as pathname. Second, it uses
+argv[i] with i > argc.
+
+Bug-Debian: https://bugs.debian.org/994067
+---
+ main.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/main.c b/main.c
+index 2908871..55b36da 100755
+--- a/main.c
++++ b/main.c
+@@ -272,6 +272,9 @@ int main(int argc, char **argv)
+ 		{
+ 			/*jump past the conf file so we don't process it.*/
+ 			argv+=2;
++			if (*argv == NULL) {
++				break;
++			}
+ 		}
+ 		testFile = fopen(*argv, "rb");
+ 		if (testFile)

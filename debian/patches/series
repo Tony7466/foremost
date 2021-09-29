@@ -6,3 +6,4 @@
 0006-enforce-limits.patch
 0007-zip-extra-byte.patch
 0008-harden-engine.patch
+0009-Fix-c-undefined-behavior.patch
