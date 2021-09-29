@@ -1,3 +1,11 @@
+foremost (1.5.7-11) unstable; urgency=medium
+
+  * Rediff patches using gbp pq.
+  * Fix -c undefined behavior. Thanks to the bug author for reporting the
+    problem and sending the patch. (Closes: #994067)
+
+ -- Raúl Benencia <rul@kalgan.cc>  Wed, 29 Sep 2021 08:29:52 -0700
+
 foremost (1.5.7-10) unstable; urgency=medium
 
   [ Gürkan Myczko ]
