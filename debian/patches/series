@@ -1,8 +1,8 @@
-00-fix-config-file-path.patch
-01-fix-lintian-hardening-warnings.patch
-02-fix-hurd-and-kfreebsd-build.patch
-03-fix-hurd-max-path.patch
-04-improve-makefile.patch
-05-enforce-limits.patch
-06-zip-extra-byte.patch
-07-harden-engine.patch
+0001-fix-config-file-path.patch
+0002-fix-lintian-hardening-warnings.patch
+0003-fix-hurd-and-kfreebsd-build.patch
+0004-fix-hurd-max-path.patch
+0005-improve-makefile.patch
+0006-enforce-limits.patch
+0007-zip-extra-byte.patch
+0008-harden-engine.patch

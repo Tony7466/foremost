@@ -1,11 +1,19 @@
-Description: Look in /etc for config file by default
+From: =?utf-8?b?R8O8cmthbiBTZW5nw7xu?= <gurkan@phys.ethz.ch>
+Date: Tue, 28 Sep 2021 18:16:45 -0700
+Subject: Look in /etc for config file by default
+
 Origin: vendor
 Forwarded: no
-Author: Gürkan Sengün <gurkan@phys.ethz.ch>
 Last-update: 2012-05-13
+---
+ config.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/config.c b/config.c
+index 9a4bc3f..89fd377 100755
 --- a/config.c
 +++ b/config.c
-@@ -288,7 +288,7 @@
+@@ -288,7 +288,7 @@ int load_config_file(f_state *s)
  #ifdef __WIN32
  		set_config_file(s, "/Program Files/foremost/foremost.conf");
  #else

@@ -1,8 +1,18 @@
+From: =?utf-8?q?Ra=C3=BAl_Benencia?= <rul@kalgan.cc>
+Date: Tue, 28 Sep 2021 18:16:45 -0700
+Subject: fix-hurd-and-kfreebsd-build
+
 Fixed hurd-i386, kfreebsd-i386 and kfreebsd-amd64 build by adding its
 respective rules to Makefile.
+---
+ Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index 1a20f4f..0785aa1 100755
 --- a/Makefile
 +++ b/Makefile
-@@ -76,6 +76,8 @@
+@@ -74,6 +74,8 @@ mac: goals
  netbsd:  unix
  openbsd: unix
  freebsd: unix

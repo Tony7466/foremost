@@ -1,0 +1,22 @@
+From: =?utf-8?q?Ra=C3=BAl_Benencia?= <rul@kalgan.cc>
+Date: Tue, 28 Sep 2021 18:16:45 -0700
+Subject: Harden engine
+
+Apply CFLAGS, CPPFLAGS and RAW_FLAGS to engine.c.
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 87693a5..6986932 100755
+--- a/Makefile
++++ b/Makefile
+@@ -83,7 +83,7 @@ unix: goals
+ #so lets make it real clear
+ 
+ engine.o:       engine.c
+-	$(CC) -c engine.c
++	$(CC) $(CFLAGS) $(CPPFLAGS) $(RAW_FLAGS) -c engine.c
+ 
+ 
+ # Common commands for compiling versions for Windows. 

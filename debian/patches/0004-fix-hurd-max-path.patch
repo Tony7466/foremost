@@ -1,0 +1,24 @@
+From: =?utf-8?q?Ra=C3=BAl_Benencia?= <rul@kalgan.cc>
+Date: Tue, 28 Sep 2021 18:16:45 -0700
+Subject: fix-hurd-max-path
+
+Fix FTBFS of hurd-i386 by defining the missing PATH_MAX macro.
+---
+ Makefile | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index 0785aa1..c8c5320 100755
+--- a/Makefile
++++ b/Makefile
+@@ -74,7 +74,10 @@ mac: goals
+ netbsd:  unix
+ openbsd: unix
+ freebsd: unix
++
++gnu: CC += -DPATH_MAX=4096
+ gnu: unix
++
+ gnu/kfreebsd: unix
+ unix: goals
+ 

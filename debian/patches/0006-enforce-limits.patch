@@ -1,10 +1,20 @@
-Author: Raúl Benencia <rul@kalgan.cc>
-Description: Enforce limits
- Enforce limits on the amount of possible patterns and the length of the config
- lines in order to avoid segmentation faults and undefined behaviour.
+From: =?utf-8?q?Ra=C3=BAl_Benencia?= <rul@kalgan.cc>
+Date: Tue, 28 Sep 2021 18:16:45 -0700
+Subject: Enforce limits
+
+Enforce limits on the amount of possible patterns and the length of the config
+lines in order to avoid segmentation faults and undefined behaviour.
+---
+ config.c | 15 +++++++++++++++
+ main.c   |  3 ++-
+ main.h   |  3 ++-
+ 3 files changed, 19 insertions(+), 2 deletions(-)
+
+diff --git a/config.c b/config.c
+index 89fd377..c6dae3b 100755
 --- a/config.c
 +++ b/config.c
-@@ -187,6 +187,15 @@
+@@ -187,6 +187,15 @@ int process_line(f_state *s, char *buffer, int line_number)
  	char	**tokenarray = (char **)malloc(6 * sizeof(char[MAX_STRING_LENGTH]));
  	int		i = 0, len = strlen(buffer);
  
@@ -20,7 +30,7 @@ Description: Enforce limits
  	/* Any line that ends with a CTRL-M (0x0d) has been processed
     by a DOS editor. We will chop the CTRL-M to ignore it */
  	if (buffer[len - 2] == 0x0d && buffer[len - 1] == 0x0a)
-@@ -258,6 +267,12 @@
+@@ -258,6 +267,12 @@ int process_line(f_state *s, char *buffer, int line_number)
  
  		}
  
@@ -33,9 +43,11 @@ Description: Enforce limits
  	if (!extractSearchSpecData(s, tokenarray))
  		{
  		fprintf(stderr,
+diff --git a/main.c b/main.c
+index 10ee5b4..2908871 100755
 --- a/main.c
 +++ b/main.c
-@@ -243,7 +243,8 @@
+@@ -243,7 +243,8 @@ int main(int argc, char **argv)
  	register_signal_handler();
  	process_command_line(argc, argv, s);
  
@@ -45,9 +57,11 @@ Description: Enforce limits
  
  	if (s->num_builtin == 0)
  		{
+diff --git a/main.h b/main.h
+index 1ffb8da..7b9d312 100755
 --- a/main.h
 +++ b/main.h
-@@ -198,6 +198,7 @@
+@@ -198,6 +198,7 @@ char *__progname;
     Program Defaults
     ----------------------------------------------------------------- */
  #define MAX_STRING_LENGTH   1024
@@ -55,7 +69,7 @@ Description: Enforce limits
  #define COMMENT_LENGTH   64
  
  /* Modes refer to options that can be set by the user. */
-@@ -344,7 +345,7 @@
+@@ -344,7 +345,7 @@ typedef struct s_spec
      int written; /*used for -a mode*/
  }s_spec;
  

@@ -1,0 +1,37 @@
+From: =?utf-8?q?Ra=C3=BAl_Benencia?= <rul@kalgan.cc>
+Date: Tue, 28 Sep 2021 18:16:45 -0700
+Subject: Improve Foremost's Makefile
+
+Foremost's Makefile does not uses the standards flags CFLAGS, LDFLAGS and
+CPPFLAGS, breaking the compatibility of the flags set by debhelper. This patch
+modifies the Makefile to make it compile Foremost in a more standard way.
+---
+ Makefile | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index c8c5320..87693a5 100755
+--- a/Makefile
++++ b/Makefile
+@@ -36,10 +36,8 @@ CR_STRIP = $(CR_BASE)/strip
+ CR_GOAL = $(NAME).exe
+ WINCC = $(RAW_CC) $(RAW_FLAGS) -D__WIN32
+ 
+-# Generic "how to compile C files"
+-CC = $(RAW_CC) $(RAW_FLAGS) -D__UNIX
+-.c.o:   
+-	$(CC) -c $<
++%.o : %.c
++	$(CC) $(CFLAGS) $(CPPFLAGS) $(RAW_FLAGS) -D__UNIX -c $<
+ 
+ 
+ # Definitions we'll need later (and that should rarely change)
+@@ -115,7 +113,7 @@ cygwin: unix
+ #---------------------------------------------------------------------
+ 
+ foremost: $(OBJ)
+-	$(CC) $(OBJ) -o $(NAME) $(LINK_OPT)
++	$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
+ 
+ 
+ #---------------------------------------------------------------------
